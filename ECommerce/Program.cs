@@ -1,3 +1,5 @@
+using ECommerce.Controllers;
+
 namespace ECommerce
 {
     public class Program
@@ -8,6 +10,7 @@ namespace ECommerce
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddTransient<HttpRequestSender>();
 
             var app = builder.Build();
 
