@@ -6,6 +6,8 @@
         public double TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public List<Product> Products { get; set; }
+        public User User { get; set; }
+
 
         public  Order()
         {
