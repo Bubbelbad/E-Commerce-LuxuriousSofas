@@ -1,0 +1,13 @@
+﻿body {
+}
+
+.arizonia-regular {
+    font-family: "Arizonia", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.shop-header,
+.shop-quote {
+    font-family: "Arizonia", cursive; 
+}

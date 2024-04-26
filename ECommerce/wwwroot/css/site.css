@@ -1,3 +1,11 @@
+:root {
+    --peach: #ffc09fff;
+    --flax: #ffee93ff;
+    --lemon-chiffon: #fcf5c7ff;
+    --light-blue: #a0ced9ff;
+    --celadon: #adf7b6ff;
+}
+
 html {
   font-size: 14px;
 }
@@ -19,4 +27,5 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-image: linear-gradient(mintcream, var(--lemon-chiffon)); 
 }
