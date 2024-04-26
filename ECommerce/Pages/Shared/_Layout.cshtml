@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ECommerce.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -28,10 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingCartPage/ShoppingCart">Cart</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/LoginPage/Login">Log In</a>
-                        </li>
                     </ul>
+                </div>
+                <div>
+                    <li class="nav-item navbar-nav">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/LoginPage/Login"><i class="fa fa-sign-in fa-2x"></i></a>
+                    </li>
                 </div>
             </div>
         </nav>
