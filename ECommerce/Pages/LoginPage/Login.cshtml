@@ -1,0 +1,37 @@
+﻿@page
+@model ECommerce.Pages.LoginPage.LoginModel
+@{
+}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/index.css" style="text/css" />
+
+<div class="text-center">
+    <h1 class="display-4 shop-header">Sign Up</h1>
+</div>
+
+<hr class="my-4">
+<form id="contactForm" class="form text-center">
+    <div class="form-container">
+        <div>
+            <input id="signUp-email" type="text" placeholder=" " type?"email" required=""><br>
+            <label for="signUp-email">Email</label><br>
+        </div>
+        <br />
+        <div>
+            <input id="signUp-password" type="password" rows="10" placeholder=" " required=""></input>
+            <br>
+            <label for="signUp-password">Password</label><br>
+        </div>
+        <br />
+        <div>
+            <input id="signUp-password-confirm" type="password" rows="10" placeholder=" " required=""></input>
+            <br>
+            <label for="signUp-password-confirm">Confirm password</label><br>
+        </div>
+        <br />
+        <br />
+        <button class="btn btn-dark btn-block btn-lg" id="signUp-submit" type="submit">Submit</button>
+    </div>
+</form>

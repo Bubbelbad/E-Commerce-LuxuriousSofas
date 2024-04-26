@@ -23,7 +23,7 @@ namespace ECommerce.Controllers
         public Product GetProductById(string id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Product/" + id).Result;
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Product/GetProductById?id=" + id).Result;
             Product product = new Product();
             if (response.IsSuccessStatusCode)
             {
@@ -37,7 +37,7 @@ namespace ECommerce.Controllers
         public List<Order> GetOrderByUserId(string id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://localhost:44300/api/products/" + id).Result;
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/GetUserById?id=" + id).Result;
             List<Order> orders = new List<Order>();
             if (response.IsSuccessStatusCode)
             {
