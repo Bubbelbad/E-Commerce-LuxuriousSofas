@@ -3,6 +3,33 @@
 @{
 }
 
+<link rel="stylesheet" href="~/css/ProductPageStylesheet.css" />
+
 <div class="text-center">
     <h1 class="display-4 shop-header">Product</h1>
+</div>
+
+<div>
+
+    <h1 class="display-4" id="Name">Name: @Model.product.Name </h1>
+    <br />
+    <img src="~/images/sofa1.png" class="img-fluid rounded-3" alt="~/images/sofa1.png" />
+
+    <label class="display-4" id="Description">Description: @Model.product.Description </label>
+    <br />
+    <label class="display-4" id="Price">Price: @Model.product.Price </label>
+    <br />
+    <label class="display-4" id="Category">Category: @Model.product.Category </label>
+    <br />
+    <label class="display-4" id="Size">Size: @Model.product.Size </label>
+    <br />
+
+    <button class="btn btn-primary">Add to cart</button>
+    <script>
+        
+
+    </script>
+
+
+      
 </div>
