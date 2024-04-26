@@ -10,7 +10,7 @@ namespace ECommerce.Controllers
         public List<Product> GetAllProducts()
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://localhost:44300/api/products").Result;
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Product/GetAllProducts").Result;
             List<Product> products = new List<Product>();
             if (response.IsSuccessStatusCode)
             {
@@ -23,7 +23,7 @@ namespace ECommerce.Controllers
         public Product GetProductById(string id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://localhost:44300/api/products/" + id).Result;
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Product/" + id).Result;
             Product product = new Product();
             if (response.IsSuccessStatusCode)
             {
