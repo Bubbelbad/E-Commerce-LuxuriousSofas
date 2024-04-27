@@ -7,7 +7,7 @@ namespace ECommerce.Models
 
         
         {
-             public int Id { get; set; }
+             public int ProductId { get; set; }
              public double Price { get; set; }
              public string Size { get; set; }
              public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace ECommerce.Models
 
              public Product(int id, double price, string size, string name, string description, string category)
              {
-                 this.Id = id;
+                 this.ProductId = id;
                  this.Price = price;
                  this.Size = size;
                  this.Name = name;
