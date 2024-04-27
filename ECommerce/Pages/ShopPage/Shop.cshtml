@@ -32,7 +32,7 @@
     <div class="row mb-4 d-flex justify-content-between align-items-center">
         <div class="col-md-2 col-lg-2 col-xl-2">
             <a asp-page="/ProductPage/Product" asp-route-id="@Model.products[i].ProductId">
-                <img src="@($"/images/sofa{i + 1}.png")" class="img-fluid rounded-3" alt="@Model.products[i].Description" />
+                <img src="@($"/images/sofa{Model.products[i].ProductId}.png")" class="img-fluid rounded-3" alt="@Model.products[i].Description" />
             </a> <!-- IMAGE -->
         </div>
     </div>
