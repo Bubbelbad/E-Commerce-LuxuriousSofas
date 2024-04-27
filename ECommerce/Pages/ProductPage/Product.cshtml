@@ -2,6 +2,10 @@
 @model ECommerce.Pages.ProductPage.ProductModel
 @{
 }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/index.css" style="text/css" />
 
 <link rel="stylesheet" href="~/css/ProductPageStylesheet.css" />
 
@@ -10,10 +14,10 @@
 </div>
 
 <div>
-    <div id="gridcontainer" gridcontainer style="display: grid;">
-         <h1 class="display-4" id="Name">@Model.product.Name </h1>
-         <br />
-         <img src="~/images/sofa1.png" class="img-fluid rounded-3" alt="~/images/sofa1.png" />
+
+    <h1 class="display-4" id="Name">Name: @Model.product.Name </h1>
+    <br />
+    <img src="@($"/images/sofa{Model.product.ProductId}.png")" class="img-fluid rounded-3" alt="~/images/sofa1.png" />
 
          <label class="display-4" id="Description">Description: @Model.product.Description </label>
          <br />
