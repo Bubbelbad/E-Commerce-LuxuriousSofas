@@ -63,3 +63,12 @@
         }
     });
 </script>
+<script> 
+     var addtocartbtn = document.getElementById("addtocartbtn");
+    addtocartbtn.addEventListener("click", function () {
+        var quantity = document.getElementById("quantity").value;
+        var productId = @Model.product.ProductId;
+        var url = "/ShoppingCartPage/ShoppingCart?handler=AddToCart&productId=" + productId + "&quantity=" + quantity;
+        
+    });
+</script>

@@ -9,10 +9,11 @@ namespace ECommerce.Pages.ProductPage
     {
         HttpRequestSender httpRequestSender;
         public Product product { get; set; }
-
+        
         public ProductModel(HttpRequestSender sender)
         {
             this.httpRequestSender = sender;
+
         }
 
         public void OnGet()
@@ -27,5 +28,6 @@ namespace ECommerce.Pages.ProductPage
             double Price = product.Price;
 
         }
+       
     }
 }
