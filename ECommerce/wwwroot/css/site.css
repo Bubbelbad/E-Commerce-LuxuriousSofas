@@ -16,6 +16,10 @@ html {
   }
 }
 
+.header {
+    background-color: var(--light-blue) !important;
+}
+
 .navbar-brand {
     font-family: "Arizonia", cursive;
     font-size: 2.1rem;
