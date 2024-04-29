@@ -1,5 +1,5 @@
 ﻿@page
-@model ECommerce.Pages.LoginPage.LoginModel
+@model ECommerce.Pages.SignUpPage.SignUpModel
 @{
 }
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="~/css/index.css" style="text/css" />
 
 <div class="text-center">
-    <h1 class="display-4 shop-header">Log In</h1>
+    <h1 class="display-4 shop-header">Sign Up</h1>
 </div>
 
 <hr class="my-4">
@@ -31,7 +31,7 @@
             <label for="signUp-password-confirm">Confirm password</label><br>
         </div>
         <br />
-        <a asp-page="/SignUpPage/SignUp">Not a member yet? Sign up!</a>
+        <a asp-page="/LogInPage/LogIn">Got an account? Log in!</a>
         <br />
         <button class="btn btn-dark btn-block btn-lg" id="signUp-submit" type="submit">Submit</button>
     </div>
