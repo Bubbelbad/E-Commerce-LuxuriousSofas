@@ -12,15 +12,15 @@
 </div>
 
 <hr class="my-4">
-<form id="contactForm" class="form text-center">
+<form id="contactForm" class="form text-center" method="post" asp-page-handler="OnPost">
     <div class="form-container">
         <div>
-            <input id="logIn-email" type="text" placeholder=" " type?"email" required=""><br>
+            <input id="logIn-email" type="text" placeholder=" " type?"email" required="" name="logIn-email"><br>
             <label for="logIn-email">Email</label><br>
         </div>
         <br />
         <div>
-            <input id="logIn-password" type="password" rows="10" placeholder=" " required=""></input>
+            <input id="logIn-password" type="password" rows="10" placeholder=" " required="" name="logIn-password"></input>
             <br>
             <label for="logIn-password">Password</label><br>
         </div>

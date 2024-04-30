@@ -47,5 +47,38 @@ namespace ECommerce.Controllers
             }
             return orders; 
         }
+
+
+        public bool UserLogin(string email, string password)
+        {
+         
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/UserLogin?email=" + email + "&password=" + password).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                bool loginSuccessful = JsonConvert.DeserializeObject<bool>(json);
+                return loginSuccessful;
+            }
+            return false; 
+        }
+
+
+       // Probably wont be needed, but lets save it in case: 
+       
+       // public List<User> GetAllUsers()
+       // {
+       //     HttpClient client = new HttpClient();
+       //     HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/GetAllUsers").Result;
+       //     List<User> users = new List<User>();
+       //     if (response.IsSuccessStatusCode)
+       //     {
+       //         string json = response.Content.ReadAsStringAsync().Result;
+       //         users = JsonConvert.DeserializeObject<List<User>>(json);
+       //     }
+       //     return users;
+       // }
+
+
     }
 }
