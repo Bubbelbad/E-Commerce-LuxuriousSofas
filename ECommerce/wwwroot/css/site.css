@@ -39,6 +39,10 @@ body {
   background-image: linear-gradient(mintcream, var(--lemon-chiffon)); 
 }
 
+.custom-text-size{
+    font-size: 3rem; 
+}
+
 <!-- SHOPPIG CART COUNT -->
 
 .badge {
