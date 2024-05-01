@@ -20,6 +20,19 @@ namespace ECommerce.Controllers
             return products;
         }
 
+        public List<Product> GetProductsByCategory(string category)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Product/GetProductsByCategory?category=" + category).Result;
+            List<Product> products = new List<Product>();
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                products = JsonConvert.DeserializeObject<List<Product>>(json);
+            }
+            return products;
+        }
+
         public Product GetProductById(string id)
         {
             HttpClient client = new HttpClient();
