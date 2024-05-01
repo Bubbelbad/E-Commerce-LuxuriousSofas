@@ -19,9 +19,19 @@ namespace ECommerce.Pages.LoginPage
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            LoginSuccessful = sender.UserLogin(Request.Form["logIn-email"], Request.Form["logIn-password"]);
+            var result = sender.UserLogin(Request.Form["logIn-email"], Request.Form["logIn-password"]);
+            if (result != null)
+            {
+                LoginSuccessful = true;
+                return RedirectToPage("/ShopPage/Shop");
+            }
+            else
+            {
+                LoginSuccessful = false;
+                return Page();
+            }   
         }
     }
 }
