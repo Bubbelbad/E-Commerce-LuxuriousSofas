@@ -34,7 +34,7 @@
     {
         <div class="col-md-2 col-lg-2 col-xl-2 mb-4 pe-4">
             <a asp-page="/ProductPage/Product" asp-route-id="@Model.couches[i].ProductId">
-                <img src="@($"/images/sofa{Model.couches[i].ProductId}.png")" class="img-fluid rounded-3" alt="@Model.couches[i].Description" />
+                <img src="@($"/images/{Model.couches[i].Category}{Model.couches[i].ProductId}.png")" class="img-fluid rounded-3" alt="@Model.couches[i].Description" />
             </a> <!-- IMAGE -->
         </div>
     }
@@ -50,7 +50,7 @@
         {
             <div class="col-md-2 col-lg-2 col-xl-2 mb-4 pe-4">
                 <a asp-page="/ProductPage/Product" asp-route-id="@Model.armchairs[i].ProductId">
-                    <img src="@($"/images/armchair{Model.armchairs[i].ProductId}.png")" class="img-fluid rounded-3" alt="@Model.armchairs[i].Description" />
+                    <img src="@($"/images/{Model.armchairs[i].Category}{Model.armchairs[i].ProductId}.png")" class="img-fluid rounded-3" alt="@Model.armchairs[i].Description" />
                 </a> <!-- IMAGE -->
             </div>
         }
