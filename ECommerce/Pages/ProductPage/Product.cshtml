@@ -9,11 +9,13 @@
 
 <link rel="stylesheet" href="~/css/ProductPageStylesheet.css" />
 
-<div class="text-center">
+<div class="">
     <h1 class="display-4 shop-header">Product</h1>
 </div>
 
+<hr class="my-4">
 <div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -23,24 +25,25 @@
             </div>
 
             <div class="col-md-6">
-                     <label class="display-4" id="descriptionHead">Description:  </label>
+                <br />
+                     <label class="fs-4 mt-5" id="descriptionHead">Description:  </label>
                      <br />
-                     <label class="display-5" id="Description">@Model.product.Description </label>
+                     <label class="fs-5" id="Description">@Model.product.Description </label>
                      <br />
            
           
                 <div class="details">
 
-                    <label class="display-6" id="price">Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.product.Price SEK </label>
+                    <label class="fs-5" id="price">Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.product.Price SEK </label>
                                  <br />
-                    <label class="display-6" id="category">Category: &nbsp;&nbsp;@Model.product.Category </label>
+                    <label class="fs-5" id="category">Category: &nbsp;&nbsp;@Model.product.Category </label>
                                  <br />
-                    <label class="display-6" id="size">Size: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Model.product.Size </label>
+                    <label class="fs-5" id="size">Size: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Model.product.Size </label>
                                  <br />
                 </div>
                 <div class="row">
                     <div class="details">
-                        <div class="col-md-8 d-flex align-items-end">
+                        <div class="col-md-8 d-flex align-items-end mt-4">
                         <input type="number" class="form-control" id="quantity" placeholder="1" </input>
                         <button class="btn btn-primary" id="addtocartbtn">Add to Cart</button>
                         </div>

@@ -43,6 +43,12 @@ body {
     font-size: 3rem; 
 }
 
+.shop-header-center{
+    margin-left: 15vw !important; 
+    margin-right: 16vw !important;
+    line-height: 0.8; 
+}
+
 <!-- SHOPPIG CART COUNT -->
 
 .badge {
