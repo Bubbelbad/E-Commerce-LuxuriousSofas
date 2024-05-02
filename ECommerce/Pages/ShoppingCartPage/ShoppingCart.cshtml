@@ -6,9 +6,126 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="~/css/index.css" style="text/css" />
+<link rel="stylesheet" href="~/css/shoppingCart.css" />
 
-<div class="text-center shop-header">
+<div class="shop-header">
     <h1 class="display-4">ShoppingCart</h1>
 </div>
 
 <hr class="my-4">
+
+<section class="h-100 h-custom shoppingCart-container">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <div class="p-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                                        <h6 class="mb-0 text-muted">0 items</h6> <!-- Den här behöver fixar beroende på items i Shopping Cart -->
+                                    </div>
+
+                                    <!-- Looping through shoppingCart to display items -->
+                                    @for (int i = 0; i < Model.shoppingCart.Count; i++)
+                                    {
+                                        <hr class="my-4">
+
+                                        <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                                <img src="@($"/Images/{Model.shoppingCart[i].Category}{Model.shoppingCart[i].ProductId}.png")"
+                                                     class="img-fluid rounded-3" alt="Cotton T-shirt">  <!-- IMAGE -->
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                                <h6 class="text-muted">@Model.shoppingCart[i].Category</h6> <!-- CATEGORY -->
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+
+                                                <input id="form1" min="0" name="quantity" value="1" type="number"
+                                                       class="form-control form-control-sm" /> <!-- Antal av produkten vi valt -->
+
+                                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                <h6 class="mb-0">€ @Model.shoppingCart[i].Price</h6> <!-- PRICE -->
+                                            </div>
+                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                            </div>
+                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                <form asp-page-handler="RemoveItem" asp-route-idToDelete="@Model.shoppingCart[i].ProductId">
+                                                    <button type="submit">Remove</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <hr class="my-4">
+                                    <div class="pt-5">
+                                        <h6 class="mb-0">
+                                            <a class="nav-link text-dark back-to-shop" asp-area="" asp-page="/ShopPage/Shop">
+                                                <i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop
+                                            </a>
+                                        </h6> <!-- Länka tillbaka -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 bg-grey">
+                                <div class="p-5">
+                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">@Model.shoppingCart.Count()</h5>
+                                        <h5>€ @Model.shoppingCartService.GetTotalPrice()</h5>
+                                    </div>
+
+                                    <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                                    <div class="mb-4 pb-2">
+                                        <select data-mdb-select-init>
+                                            <option value="1">Standard-Delivery $5.00</option>
+                                            <option value="2">Snigel-Post $10.50</option>
+                                        </select>
+                                    </div>
+
+                                    <h5 class="text-uppercase mb-3">Got a coupon?</h5>
+
+                                    <div class="mb-5">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Examplea2">Enter your code</label>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">Total price</h5>
+                                        <h5>€ 137.00</h5> <!-- Här måste jag länka priset! -->
+                                    </div>
+
+                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
+                                            data-mdb-ripple-color="dark">
+                                        Register
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/shoppingBasket.js"></script>
+</section>

@@ -1,4 +1,5 @@
 using ECommerce.Controllers;
+using ECommerce.Services;
 
 namespace ECommerce
 {
@@ -11,6 +12,7 @@ namespace ECommerce
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddTransient<HttpRequestSender>();
+            builder.Services.AddSingleton<ShoppingCartService>();
 
             var app = builder.Build();
 

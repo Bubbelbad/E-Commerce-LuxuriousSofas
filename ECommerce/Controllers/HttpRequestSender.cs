@@ -64,7 +64,7 @@ namespace ECommerce.Controllers
 
         public bool UserLogin(string email, string password)
         {
-         
+            //Return a user instead and use Identity to authenticate. 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/UserLogin?email=" + email + "&password=" + password).Result;
             if (response.IsSuccessStatusCode)

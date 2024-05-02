@@ -1,0 +1,14 @@
+﻿:root {
+    --peach: #ffc09fff;
+    --flax: #ffee93ff;
+    --lemon-chiffon: #fcf5c7ff;
+    --light-blue: #a0ced9ff;
+    --celadon: #adf7b6ff;
+}
+
+body {
+}
+
+.shoppingCart-container {
+    background-color: transparent;
+}
