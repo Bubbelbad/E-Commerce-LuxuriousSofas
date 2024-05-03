@@ -14,12 +14,38 @@ namespace ECommerce.Services
 
         public List<Product> GetShoppingCartList()
         {
-            throw new NotImplementedException();
+            return shoppingCart;
         }
 
-        public int GetTotalPrice()
+
+        public void AddProduct(Product product)
         {
-            return 10; 
+            shoppingCart.Add(product);
+        }
+
+
+        public void DeleteProduct(int idToDelete)
+        {
+            for (int i = 0; i < shoppingCart.Count; i++)
+            {
+                if (shoppingCart[i].ProductId == idToDelete)
+                {
+                    Product product = shoppingCart[i];
+                    shoppingCart.Remove(product);
+                    break;
+                }
+            }
+        }
+
+
+        public double GetTotalPrice()
+        {
+            double totalPrice = 0;
+            foreach (Product product in shoppingCart)
+            {
+                totalPrice += product.Price;
+            }
+            return totalPrice;
         }
     }
 }
