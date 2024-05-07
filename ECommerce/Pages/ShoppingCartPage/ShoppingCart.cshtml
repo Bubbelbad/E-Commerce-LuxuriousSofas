@@ -25,7 +25,7 @@
                                 <div class="p-5">
                                     <div class="d-flex justify-content-between align-items-center mb-5">
                                         <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                                        <h6 class="mb-0 text-muted">0 items</h6> <!-- Den här behöver fixar beroende på items i Shopping Cart -->
+                                        <h6 class="mb-0 text-muted">@Model.shoppingCart.Count items</h6> <!-- Den här behöver fixar beroende på items i Shopping Cart -->
                                     </div>
 
                                     <!-- Looping through shoppingCart to display items -->
@@ -35,11 +35,11 @@
 
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="@($"/Images/{Model.shoppingCart[i].Category}{Model.shoppingCart[i].ProductId}.png")"
-                                                     class="img-fluid rounded-3" alt="Cotton T-shirt">  <!-- IMAGE -->
+                                                <img src="@($"/Images/{Model.shoppingCart[i].Product.Category}{Model.shoppingCart[i].Product.ProductId}.png")"
+                                                     class="img-fluid rounded-3" alt="Furniture">  <!-- IMAGE -->
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-3">
-                                                <h6 class="text-muted">@Model.shoppingCart[i].Category</h6> <!-- CATEGORY -->
+                                                <h6 class="text-muted">@Model.shoppingCart[i].Product.Category</h6> <!-- CATEGORY -->
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
@@ -56,13 +56,13 @@
                                                 </button>
                                             </div>
                                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h6 class="mb-0">€ @Model.shoppingCart[i].Price</h6> <!-- PRICE -->
+                                                <h6 class="mb-0">€ @Model.shoppingCart[i].Product.Price</h6> <!-- PRICE -->
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                <form asp-page-handler="RemoveItem" asp-route-idToDelete="@Model.shoppingCart[i].ProductId">
+                                                <form asp-page-handler="RemoveItem" asp-route-idToDelete="@Model.shoppingCart[i].Product.ProductId">
                                                     <button type="submit">Remove</button>
                                                 </form>
                                             </div>

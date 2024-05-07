@@ -10,7 +10,7 @@ namespace ECommerce.Pages.ShoppingCartPage
     {
         public HttpRequestSender httpRequestSender;
         public ShoppingCartService shoppingCartService;
-        public List<Product> shoppingCart = new List<Product>();
+        public List<CartItem> shoppingCart;
 
         public ShoppingCartPageModel(HttpRequestSender httpRequestSender, ShoppingCartService shoppingCartService)
         {
@@ -21,6 +21,13 @@ namespace ECommerce.Pages.ShoppingCartPage
 
         public void OnGet()
         {
+            shoppingCart = shoppingCartService.GetShoppingCartList();
+        }
+
+        public IActionResult OnPostRemoveItem(int idToDelete)
+        {
+            shoppingCartService.DeleteProduct(idToDelete);
+            return RedirectToPage();
         }
     }
 }
