@@ -8,10 +8,6 @@ namespace ECommerce.Services
 
         public ShoppingCartService()
         {
-            shoppingCart.Add(new CartItem(1, 199.50, "3", "Luxury Sofa", "Guld", "Sofa", 1));
-            shoppingCart.Add(new CartItem(2, 299.50, "3", "Fat Sofa", "Silver", "Sofa", 2));
-            shoppingCart.Add(new CartItem(3, 49.50, "4", "Potatoes Den", "Titan", "Sofa", 3));
-            shoppingCart.Add(new CartItem(5, 49.50, "3", "Sitt-lyan", "Silver", "Sofa", 1));
         }
 
 
