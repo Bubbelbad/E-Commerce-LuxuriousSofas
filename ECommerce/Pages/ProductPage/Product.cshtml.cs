@@ -16,7 +16,6 @@ namespace ECommerce.Pages.ProductPage
         {
             this.httpRequestSender = sender;
             this.shoppingCartService = service;
-
         }
 
         public void OnGet()
@@ -24,11 +23,18 @@ namespace ECommerce.Pages.ProductPage
             string id = Request.Query["id"]; //Gets the id from the asp-route-id attribute in the anchor tag
             product = httpRequestSender.GetProductById(id); //Gets the product by id
             
-            string Description = product.Description;   
-            string Name = product.Name; 
-            string Category = product.Category;
-            string Size = product.Size;
-            double Price = product.Price;
+          //  string Description = product.Description;   
+          //  string Name = product.Name; 
+          //  string Category = product.Category;
+          //  string Size = product.Size;
+          //  double Price = product.Price;
+        }
+
+        public IActionResult OnPostAddToCart(int id, int quantity)
+        {
+            product = httpRequestSender.GetProductById(id.ToString());
+            shoppingCartService.AddProduct(product, quantity);
+            return RedirectToPage("/ShoppingCartPage/ShoppingCart");
         }
     }
 }

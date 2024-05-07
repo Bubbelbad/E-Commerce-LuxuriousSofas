@@ -62,7 +62,7 @@
                                                 <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                <form asp-page-handler="RemoveItem" asp-route-idToDelete="@Model.shoppingCart[i].Product.ProductId">
+                                                <form asp-page-handler="RemoveItem" asp-route-idToDelete="@Model.shoppingCart[i].Product.ProductId" asp-page="/ShoppingCartPage/ShoppingCart">
                                                     <button type="submit">Remove</button>
                                                 </form>
                                             </div>
