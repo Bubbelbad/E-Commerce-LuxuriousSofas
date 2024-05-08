@@ -11,7 +11,7 @@
 
         public  Order()
         {
-
+            Products = new List<Product>();
         }
 
 

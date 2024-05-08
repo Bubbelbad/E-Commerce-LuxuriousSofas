@@ -79,7 +79,7 @@ namespace ECommerce.Controllers
         public bool CreateOrder(Order order)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Order/AddOrder?" + order).Result;
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Order/AddOrder?order=" + order).Result;
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;

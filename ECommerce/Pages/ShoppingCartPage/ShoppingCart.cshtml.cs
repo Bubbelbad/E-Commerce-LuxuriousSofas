@@ -35,11 +35,17 @@ namespace ECommerce.Pages.ShoppingCartPage
         }
 
 
-        public IActionResult OnPostCreateOrder(List<CartItem> items, double totalPrice)
+        public IActionResult OnPostCreateOrder()
         {
+            List<CartItem> items = shoppingCartService.GetShoppingCartList();
+            foreach (CartItem item in items)
+            {
+                item.Quantity = 1; 
+            }
             Order order = shoppingCartService.CreateProductList(items);
-            order.TotalPrice = totalPrice;
-            order.UserId = loginService.GetCurrentUserId();
+            order.TotalPrice = shoppingCartService.GetTotalPrice();
+            // order.UserId = loginService.GetCurrentUserId();
+            order.UserId = 1;
             order.OrderDate = DateTime.Now;
 
             httpRequestSender.CreateOrder(order);
