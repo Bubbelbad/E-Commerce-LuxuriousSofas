@@ -24,6 +24,7 @@ namespace ECommerce.Pages.ShoppingCartPage
             shoppingCart = shoppingCartService.GetShoppingCartList();
         }
 
+
         public IActionResult OnPostRemoveItem(int idToDelete)
         {
             shoppingCartService.DeleteProduct(idToDelete);
