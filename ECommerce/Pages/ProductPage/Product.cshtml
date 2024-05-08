@@ -45,7 +45,7 @@
                     <div class="details">
                         <div class="col-md-8 d-flex align-items-end mt-4">
                         <input type="number" class="form-control" id="quantity" placeholder="1" </input>
-                            <form asp-page-handler="AddToCart" asp-route-id="@Model.product.ProductId" asp-route-quantity="@Model.product.ProductId">
+                            <form asp-page-handler="AddToCart" asp-route-id="@Model.product.ProductId">
                                 <button class="btn btn-primary" id="addtocartbtn" type="submit">Add</button>
                             </form>
                         </div>

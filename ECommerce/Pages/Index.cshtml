@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="~/css/index.css" style="text/css"/>
 
+
 <div class="shop-header">
     <h1 class="display-4 shop-header">Home</h1>
 </div>
@@ -17,7 +18,46 @@
 
 <div class="text-center mt-5">
     <br />
-    <p>OUR TOP COUCHES</p>
+    <p>OUR TOP ARMCHAIRS</p>
+</div>
+
+<div id="carouselControls" class="carousel slide mx-auto" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#carouselControls" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselControls" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselControls" data-bs-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        @for (int i = 0; i < 3; i++)
+        {
+            @if (i == 0)
+            {
+                <div class="carousel-item active">
+                    <a asp-page="/ProductPage/Product" asp-route-id="@Model.springCollection[i].ProductId">
+                        <img src="@($"/images/{Model.springCollection[i].Category}{Model.springCollection[i].ProductId}.png")" class="d-block mx-auto spring-collection-img rounded-3">
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="carousel-item">
+                    <a asp-page="/ProductPage/Product" asp-route-id="@Model.springCollection[i].ProductId">
+                        <img src="@($"/images/{Model.springCollection[i].Category}{Model.springCollection[i].ProductId}.png")" class="d-block mx-auto spring-collection-img rounded-3">
+                    </a>
+                </div>
+            }
+        }
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 

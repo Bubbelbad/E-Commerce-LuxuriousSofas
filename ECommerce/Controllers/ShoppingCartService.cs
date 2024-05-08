@@ -17,10 +17,18 @@ namespace ECommerce.Services
         }
 
 
-        public void AddProduct(Product product, int quatity)
+        public void AddProduct(Product product, int quantity)
         {
+            foreach (CartItem item in shoppingCart)
+            {
+                if (item.Product.ProductId == product.ProductId)
+                {
+                    item.Quantity += quantity;
+                    return;
+                }
+            }
             shoppingCart.Add(new CartItem(product.ProductId, product.Price, product.Size, product.Name, 
-                                          product.Description, product.Category, quatity));
+                                          product.Description, product.Category, quantity));
         }
 
 
