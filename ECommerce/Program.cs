@@ -13,6 +13,7 @@ namespace ECommerce
             builder.Services.AddRazorPages();
             builder.Services.AddTransient<HttpRequestSender>();
             builder.Services.AddSingleton<ShoppingCartService>();
+            builder.Services.AddSingleton<LoginService>();
 
             var app = builder.Build();
 

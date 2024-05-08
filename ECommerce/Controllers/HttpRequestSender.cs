@@ -76,20 +76,33 @@ namespace ECommerce.Controllers
             return false; 
         }
 
+        public bool CreateOrder(Order order)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/Order/AddOrder?" + order).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                bool addOrderSuccessful = JsonConvert.DeserializeObject<bool>(json);
+                return addOrderSuccessful;
+            }
+            return false; 
+        }
 
-       // Probably wont be needed, but lets save it in case: 
-       
-       // public List<User> GetAllUsers()
-       // {
-       //     HttpClient client = new HttpClient();
-       //     HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/GetAllUsers").Result;
-       //     List<User> users = new List<User>();
-       //     if (response.IsSuccessStatusCode)
-       //     {
-       //         string json = response.Content.ReadAsStringAsync().Result;
-       //         users = JsonConvert.DeserializeObject<List<User>>(json);
-       //     }
-       //     return users;
-       // }
+
+        // Probably wont be needed, but lets save it in case: 
+
+        // public List<User> GetAllUsers()
+        // {
+        //     HttpClient client = new HttpClient();
+        //     HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/GetAllUsers").Result;
+        //     List<User> users = new List<User>();
+        //     if (response.IsSuccessStatusCode)
+        //     {
+        //         string json = response.Content.ReadAsStringAsync().Result;
+        //         users = JsonConvert.DeserializeObject<List<User>>(json);
+        //     }
+        //     return users;
+        // }
     }
 }

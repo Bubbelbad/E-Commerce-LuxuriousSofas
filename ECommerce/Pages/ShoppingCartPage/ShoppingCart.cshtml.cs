@@ -10,12 +10,15 @@ namespace ECommerce.Pages.ShoppingCartPage
     {
         public HttpRequestSender httpRequestSender;
         public ShoppingCartService shoppingCartService;
+        public LoginService loginService;
         public List<CartItem> shoppingCart;
 
-        public ShoppingCartPageModel(HttpRequestSender httpRequestSender, ShoppingCartService shoppingCartService)
+
+        public ShoppingCartPageModel(HttpRequestSender httpRequestSender, ShoppingCartService shoppingCartService, LoginService loginService)
         {
             this.httpRequestSender = httpRequestSender;
             this.shoppingCartService = shoppingCartService;
+            this.loginService = loginService;
         }
 
 
@@ -28,6 +31,18 @@ namespace ECommerce.Pages.ShoppingCartPage
         public IActionResult OnPostRemoveItem(int idToDelete)
         {
             shoppingCartService.DeleteProduct(idToDelete);
+            return RedirectToPage();
+        }
+
+
+        public IActionResult OnPostCreateOrder(List<CartItem> items, double totalPrice)
+        {
+            Order order = shoppingCartService.CreateProductList(items);
+            order.TotalPrice = totalPrice;
+            order.UserId = loginService.GetCurrentUserId();
+            order.OrderDate = DateTime.Now;
+
+            httpRequestSender.CreateOrder(order);
             return RedirectToPage();
         }
     }
