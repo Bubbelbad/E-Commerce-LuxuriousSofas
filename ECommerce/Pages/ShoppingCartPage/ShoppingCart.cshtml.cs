@@ -42,11 +42,12 @@ namespace ECommerce.Pages.ShoppingCartPage
             {
                 item.Quantity = 1; 
             }
-            Order order = shoppingCartService.CreateProductList(items);
+            Order order = new Order();
+            order.ProductList  = shoppingCartService.CreateProductList(items);
             order.TotalPrice = shoppingCartService.GetTotalPrice();
             // order.UserId = loginService.GetCurrentUserId();
             order.UserId = 1;
-            order.OrderDate = DateTime.Now;
+            order.OrderDate = "2022-01-01T00:00:00";
 
             httpRequestSender.CreateOrder(order);
             return RedirectToPage();

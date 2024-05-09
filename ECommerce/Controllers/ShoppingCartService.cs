@@ -55,17 +55,17 @@ namespace ECommerce.Services
             return totalPrice;
         }
 
-        public Order CreateProductList(List<CartItem> items)
+        public List<Product> CreateProductList(List<CartItem> items)
         {
-            Order order = new Order();
+            List<Product> products = new List<Product>();
             foreach (CartItem item in items)
             {
                 for (int i = 0; i < item.Quantity; i++)
                 {
-                    order.Products.Add(item.Product);
+                    products.Add(item.Product);
                 }
             }
-            return order; 
+            return products; 
         }
     }
 }

@@ -2,24 +2,25 @@
 {
     public class Order
     {
-        public int OrderId { get; set; }
+        //public int OrderId { get; set; }
         public double TotalPrice { get; set; }
-        public DateTime OrderDate { get; set; }
-        public List<Product> Products { get; set; }
+        public string OrderDate { get; set; }
+        public List<Product> ProductList { get; set; }
         public int UserId { get; set; }
 
 
         public  Order()
         {
-            Products = new List<Product>();
+            ProductList = new List<Product>();
         }
 
 
-        public Order(int id, double totalPrice, DateTime date)
+        public Order(double totalPrice, string date, int userId, List<Product> products)
         {
-            this.OrderId = id;
             this.TotalPrice = totalPrice;
             this.OrderDate = date;
+            this.UserId = userId;
+            this.ProductList = products;
         }
     }
 }
