@@ -7,6 +7,8 @@ namespace ECommerce.Controllers
     {
         public HttpRequestSender() { }
 
+
+        //This method returns a list of all products. (Not yet in use)
         public List<Product> GetAllProducts()
         {
             HttpClient client = new HttpClient();
@@ -20,6 +22,8 @@ namespace ECommerce.Controllers
             return products;
         }
 
+
+        //This method returns a list of products by category.
         public List<Product> GetProductsByCategory(string category)
         {
             HttpClient client = new HttpClient();
@@ -33,6 +37,8 @@ namespace ECommerce.Controllers
             return products;
         }
 
+
+        //This method returns a product by its id.
         public Product GetProductById(string id)
         {
             HttpClient client = new HttpClient();
@@ -47,21 +53,8 @@ namespace ECommerce.Controllers
             return product; 
         }
 
-        public List<Order> GetOrderByUserId(string id)
-        {
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/GetUserById?id=" + id).Result;
-            List<Order> orders = new List<Order>();
-            if (response.IsSuccessStatusCode)
-            {
-                string json = response.Content.ReadAsStringAsync().Result; 
-                orders = JsonConvert.DeserializeObject<List<Order>>(json);
-                return orders; 
-            }
-            return orders; 
-        }
 
-
+        //This method returns a boolean indicating whether the user was successfully logged in.
         public bool UserLogin(string email, string password)
         {
             //Return a user instead and use Identity to authenticate. 
@@ -76,11 +69,29 @@ namespace ECommerce.Controllers
             return false; 
         }
 
+
+        //This method creates an order and returns a boolean indicating whether the order was created successfully.
         public bool CreateOrder(Order order)
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.PostAsJsonAsync("https://localhost:7208/api/Order/AddOrder", order).Result;
             return response.IsSuccessStatusCode;
         }
+
+
+        //This method is note yet in use.
+      //  public List<Order> GetOrderByUserId(string id)
+      //  {
+      //      HttpClient client = new HttpClient();
+      //      HttpResponseMessage response = client.GetAsync("https://localhost:7208/api/User/GetUserById?id=" + id).Result;
+      //      List<Order> orders = new List<Order>();
+      //      if (response.IsSuccessStatusCode)
+      //      {
+      //          string json = response.Content.ReadAsStringAsync().Result;
+      //          orders = JsonConvert.DeserializeObject<List<Order>>(json);
+      //          return orders;
+      //      }
+      //      return orders;
+      //  }
     }
 }
